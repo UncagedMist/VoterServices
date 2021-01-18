@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ووٹر خدمات</string>
+
+    <string name="voterCard">ووٹر شناختی کارڈ</string>
+    <string name="changeLanguage">زبان تبدیل کریں</string>
+
+    <string name="searchVoter">انتخابی فہرست تلاش کریں</string>
+    <string name="voterPortal">ووٹر پورٹل</string>
+    <string name="downloadRoll">انتخابی فہرست پی ڈی ایف ڈاؤن لوڈ کریں</string>
+    <string name="knowBooth">اپنے بوتھ / اسمبلی کو جانیں</string>
+    <string name="trackApp">ٹریک کی درخواست کی حیثیت</string>
+    <string name="officialPage">سرکاری صفحہ</string>
+    <string name="applyOnline">رجسٹریشن نیا انتخاب کنندہ</string>
+    <string name="overseasElector">بیرون ملک مقیم الیکٹرک رجسٹریشن</string>
+    <string name="deleteElectoral">انتخابی حذف کریں</string>
+    <string name="editElectoral">اندراجات کی اصلاح</string>
+    <string name="transposition">AC میں تبدیلی</string>
+    <string name="migration">دوسرے AC میں ہجرت</string>
+    <string name="reprint">ووٹر دوبارہ پرنٹ کریں</string>
+    <string name="forms">فارم</string>
+    <string name="result">انتخابی نتائج</string>
+
+</resources>

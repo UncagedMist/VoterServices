@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">मतदाता सेवा</string>
+
+    <string name="voterCard">मतदाता पहचान पत्र</string>
+    <string name="changeLanguage">भाषा बदलें</string>
+
+    <string name="searchVoter">मतदाता सूची खोजें</string>
+    <string name="voterPortal">मतदाता पोर्टल</string>
+    <string name="downloadRoll">मतदाता सूची डाउनलोड</string>
+    <string name="knowBooth">अपना बूथ / सर्किल जानें</string>
+    <string name="trackApp">आवेदन स्थिती जांचे</string>
+    <string name="officialPage">होम पेज</string>
+    <string name="applyOnline">नया वोटर पंजीकृत करें</string>
+    <string name="overseasElector">विदेशी वोटर पंजीकृत करें</string>
+    <string name="deleteElectoral">मतदाता मिटायें</string>
+    <string name="editElectoral">सुधार करें</string>
+    <string name="transposition">ए.सी. के भीतर स्थानांतरण</string>
+    <string name="migration">दूसरे ए.सी. में माइग्रेशन</string>
+    <string name="reprint">मतदाता पुनर्मुद्रण</string>
+    <string name="forms">फार्म</string>
+    <string name="result">चुनाव परिणाम</string>
+
+</resources>

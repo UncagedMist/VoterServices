@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ভোটার সেবা</string>
+
+    <string name="voterCard">ভোটার আইডি কার্ড</string>
+    <string name="changeLanguage">ভাষা পরিবর্তন করুন</string>
+
+    <string name="searchVoter">নির্বাচনী রোল অনুসন্ধান করুন</string>
+    <string name="voterPortal">ভোটার পোর্টাল</string>
+    <string name="downloadRoll">নির্বাচনী রোল পিডিএফ ডাউনলোড করুন</string>
+    <string name="knowBooth">আপনার বুথ / সমাবেশ জেনে নিন</string>
+    <string name="trackApp">অ্যাপ্লিকেশন স্থিতি ট্র্যাক</string>
+    <string name="officialPage">দাপ্তরিক পাতা</string>
+    <string name="applyOnline">নতুন ইলেক্টর নিবন্ধন</string>
+    <string name="overseasElector">বিদেশী ইলেক্টর নিবন্ধন</string>
+    <string name="deleteElectoral">নির্বাচনী মোছা</string>
+    <string name="editElectoral">এন্ট্রি সংশোধন</string>
+    <string name="transposition">এসির মধ্যে স্থানান্তর</string>
+    <string name="migration">অন্য এসি তে মাইগ্রেশন</string>
+    <string name="reprint">ভোটার পুনঃপ্রিন্ট</string>
+    <string name="forms">ফর্ম</string>
+    <string name="result">নির্বাচনের ফলাফল</string>
+</resources>

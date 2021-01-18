@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_bg"
+    tools:context=".MainActivity">
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/aboveBanner"
+        android:layout_margin="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-7920815986886474/2899338341"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_below="@id/aboveBanner"
+        android:id="@+id/image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@mipmap/ic_launcher"
+        app:civ_border_width="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        app:civ_border_color="#FFF"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnVoter"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/voterCard"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_bg"
+        android:textSize="30sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnChange"
+        android:layout_above="@id/belowBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/changeLanguage"
+        android:textColor="#FFFFFF"
+        android:layout_margin="30dp"
+        android:background="@drawable/button_bg"
+        android:textSize="25sp" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/belowBanner"
+        android:layout_margin="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adUnitId="ca-app-pub-7920815986886474/6226536859"/>
+
+</RelativeLayout>

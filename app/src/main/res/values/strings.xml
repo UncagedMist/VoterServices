@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Voter Services</string>
+
+    <string name="voterCard">Voter ID Card</string>
+    <string name="changeLanguage">Change Language</string>
+
+    <string name="searchVoter">Search Electoral Roll</string>
+    <string name="voterPortal">Voter Portal</string>
+    <string name="downloadRoll">Download Electoral Roll Pdf</string>
+    <string name="knowBooth">Know Your Booth / Assembly</string>
+    <string name="trackApp">Track Application Status</string>
+    <string name="officialPage">Official Page</string>
+    <string name="applyOnline">Registration New Elector</string>
+    <string name="overseasElector">Overseas Elector Registration</string>
+    <string name="deleteElectoral">Delete Electoral</string>
+    <string name="editElectoral">Correction of Entries</string>
+    <string name="transposition">Transposition within AC</string>
+    <string name="migration">Migration to another AC</string>
+    <string name="reprint">Voter Reprint</string>
+    <string name="forms">Forms</string>
+    <string name="result">Election Result</string>
+
+</resources>

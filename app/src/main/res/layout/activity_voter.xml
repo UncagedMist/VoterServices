@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_bg"
+    tools:context=".VoterActivity">
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/aboveBanner"
+        android:layout_margin="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-7920815986886474/2899338341"/>
+
+    <ScrollView
+        android:layout_above="@id/belowBanner"
+        android:layout_below="@id/aboveBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/searchVoter"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_bg"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnVoterPortal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/voterPortal"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_bg"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnReprint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reprint"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnForms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/forms"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnDownloadRoll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/downloadRoll"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_bg"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnKnowBooth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/knowBooth"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnTrack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/trackApp"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnOfficial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/officialPage"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_bg"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnNew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/applyOnline"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnOverseas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/overseasElector"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/deleteElectoral"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/editElectoral"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnTrans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/transposition"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnMigration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/migration"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/belowBanner"
+        android:layout_margin="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        android:layout_alignParentBottom="true"
+        ads:adUnitId="ca-app-pub-7920815986886474/6226536859"/>
+
+</RelativeLayout>
