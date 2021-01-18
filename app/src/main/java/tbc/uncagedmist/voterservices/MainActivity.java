@@ -217,6 +217,8 @@ public class MainActivity extends AppCompatActivity {
         final AppCompatButton btnHindi = language_layout.findViewById(R.id.btnHindi);
         final AppCompatButton btnUrdu = language_layout.findViewById(R.id.btnUrdu);
         final AppCompatButton btnBangla = language_layout.findViewById(R.id.btnBangla);
+        final AppCompatButton btnPunjabi = language_layout.findViewById(R.id.btnPunjabi);
+        final AppCompatButton btnKannada = language_layout.findViewById(R.id.btnKannada);
 
         final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(this);
         dialogBuilder
@@ -258,6 +260,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setLocale("bn");
+                recreate();
+            }
+        });
+
+        btnPunjabi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("pa");
+                recreate();
+            }
+        });
+
+        btnKannada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("kn");
                 recreate();
             }
         });

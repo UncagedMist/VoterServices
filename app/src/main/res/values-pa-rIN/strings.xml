@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ਵੋਟਰ ਸੇਵਾਵਾਂ</string>
+
+    <string name="voterCard">ਵੋਟਰ ਆਈ ਡੀ ਕਾਰਡ</string>
+    <string name="changeLanguage">ਭਾਸ਼ਾ ਬਦਲੋ</string>
+
+    <string name="searchVoter">ਚੋਣ ਰੋਲ ਦੀ ਖੋਜ ਕਰੋ</string>
+    <string name="voterPortal">ਵੋਟਰ ਪੋਰਟਲ</string>
+    <string name="downloadRoll">ਚੋਣ ਰੋਲ ਪੀਡੀਐਫ ਡਾ ਨਲੋਡ ਕਰੋ</string>
+    <string name="knowBooth">ਆਪਣੇ ਬੂਥ / ਅਸੈਂਬਲੀ ਨੂੰ ਜਾਣੋ</string>
+    <string name="trackApp">ਟਰੈਕ ਐਪਲੀਕੇਸ਼ਨ ਸਥਿਤੀ</string>
+    <string name="officialPage">ਅਧਿਕਾਰਕ ਪੰਨਾ</string>
+    <string name="applyOnline">ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਨਵਾਂ ਵੋਟਰ</string>
+    <string name="overseasElector">ਵਿਦੇਸ਼ੀ ਇਲੈਕਟਰ ਰਜਿਸਟ੍ਰੇਸ਼ਨ</string>
+    <string name="deleteElectoral">ਇਲੈਕਟੋਰਲ ਮਿਟਾਓ</string>
+    <string name="editElectoral">ਇੰਦਰਾਜ਼ਾਂ ਦੀ ਸੁਧਾਈ</string>
+    <string name="transposition">AC ਦੇ ਅੰਦਰ ਤਬਦੀਲੀ</string>
+    <string name="migration">ਕਿਸੇ ਹੋਰ ਏਸੀ ਵਿੱਚ ਮਾਈਗਰੇਸ਼ਨ</string>
+    <string name="reprint">ਵੋਟਰ ਦੁਬਾਰਾ ਛਾਪੋ</string>
+    <string name="forms">ਫਾਰਮ</string>
+    <string name="result">ਚੋਣ ਨਤੀਜਾ</string>
+
+</resources>

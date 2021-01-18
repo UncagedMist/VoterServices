@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ಮತದಾರರ ಸೇವೆಗಳು</string>
+
+    <string name="voterCard">ಮತದಾರರ ಗುರುತಿನ ಚೀಟಿ</string>
+    <string name="changeLanguage">ಭಾಷೆ ಬದಲಾಯಿಸಿ</string>
+
+    <string name="searchVoter">ಚುನಾವಣಾ ರೋಲ್ ಹುಡುಕಿ</string>
+    <string name="voterPortal">ಮತದಾರರ ಪೋರ್ಟಲ್</string>
+    <string name="downloadRoll">ಎಲೆಕ್ಟರಲ್ ರೋಲ್ ಪಿಡಿಎಫ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</string>
+    <string name="knowBooth">ನಿಮ್ಮ ಬೂತ್ / ಅಸೆಂಬ್ಲಿ ತಿಳಿಯಿರಿ</string>
+    <string name="trackApp">ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಿತಿಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ</string>
+    <string name="officialPage">ಅಧಿಕೃತ ಪುಟ</string>
+    <string name="applyOnline">ನೋಂದಣಿ ಹೊಸ ಮತದಾರ</string>
+    <string name="overseasElector">ಸಾಗರೋತ್ತರ ಮತದಾರರ ನೋಂದಣಿ</string>
+    <string name="deleteElectoral">ಚುನಾವಣೆಯನ್ನು ಅಳಿಸಿ</string>
+    <string name="editElectoral">ನಮೂದುಗಳ ತಿದ್ದುಪಡಿ</string>
+    <string name="transposition">ಎಸಿಯೊಳಗೆ ಸ್ಥಳಾಂತರ</string>
+    <string name="migration">ಮತ್ತೊಂದು ಎಸಿಗೆ ವಲಸೆ</string>
+    <string name="reprint">ಮತದಾರರ ಮರುಮುದ್ರಣ</string>
+    <string name="forms">ಫಾರ್ಮ್‌ಗಳು</string>
+    <string name="result">ಚುನಾವಣಾ ಫಲಿತಾಂಶ</string>
+
+</resources>
