@@ -16,5 +16,7 @@ public class Common {
     public static final String TRANSPOSITION = "https://www.nvsp.in/Account/Login";
     public static final String MIGRATION = "https://www.nvsp.in/Account/Login";
     public static final String REPRINT = "https://voterportal.eci.gov.in/";
+    public static final String E_VOTER = "https://www.nvsp.in/Account/Login";
+    public static final String E_KYC = "https://www.nvsp.in/Account/Login";
 
 }

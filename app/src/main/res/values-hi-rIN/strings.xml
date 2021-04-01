@@ -19,5 +19,7 @@
     <string name="reprint">मतदाता पुनर्मुद्रण</string>
     <string name="forms">फार्म</string>
     <string name="result">चुनाव परिणाम</string>
+    <string name="e_voter">Download E-Voter</string>
+    <string name="e_kyc">E-KYC</string>
 
 </resources>

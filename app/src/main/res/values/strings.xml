@@ -19,5 +19,7 @@
     <string name="reprint">Voter Reprint</string>
     <string name="forms">Forms</string>
     <string name="result">Election Result</string>
+    <string name="e_voter">Download E-Voter</string>
+    <string name="e_kyc">E-KYC</string>
 
 </resources>

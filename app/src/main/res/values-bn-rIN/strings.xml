@@ -20,4 +20,6 @@
     <string name="reprint">ভোটার পুনঃপ্রিন্ট</string>
     <string name="forms">ফর্ম</string>
     <string name="result">নির্বাচনের ফলাফল</string>
+    <string name="e_voter">Download E-Voter</string>
+    <string name="e_kyc">E-KYC</string>
 </resources>

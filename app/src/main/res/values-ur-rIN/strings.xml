@@ -19,5 +19,7 @@
     <string name="reprint">ووٹر دوبارہ پرنٹ کریں</string>
     <string name="forms">فارم</string>
     <string name="result">انتخابی نتائج</string>
+    <string name="e_voter">Download E-Voter</string>
+    <string name="e_kyc">E-KYC</string>
 
 </resources>

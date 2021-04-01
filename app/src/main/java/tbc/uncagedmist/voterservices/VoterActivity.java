@@ -30,6 +30,7 @@ public class VoterActivity extends AppCompatActivity {
 
     AppCompatButton btnSearch, btnVoterPortal, btnDownloadRoll, btnKnowBooth,btnTrackApp, btnOfficial, btnApply;
     AppCompatButton btnOverseas, btnDelete, btnEdit, btnTrans, btnMigration, btnReprint,btnResult,btnForms;
+    AppCompatButton btnEVoter,btnEKYC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,8 @@ public class VoterActivity extends AppCompatActivity {
         btnTrans = findViewById(R.id.btnTrans);
         btnMigration = findViewById(R.id.btnMigration);
         btnReprint = findViewById(R.id.btnReprint);
+        btnEVoter = findViewById(R.id.btnEVoter);
+        btnEKYC = findViewById(R.id.btnEKYC);
 
         aboveBanner = findViewById(R.id.aboveBanner);
         bottomBanner = findViewById(R.id.belowBanner);
@@ -393,6 +396,34 @@ public class VoterActivity extends AppCompatActivity {
                 } else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.REPRINT);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
+
+        btnEVoter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
+                    intent.putExtra("url", Common.E_VOTER);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
+
+        btnEKYC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
+                    intent.putExtra("url", Common.E_KYC);
                     startActivity(intent);
                     finish();
                 }

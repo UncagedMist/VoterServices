@@ -178,6 +178,26 @@
                 android:textSize="20sp"
                 android:background="@drawable/button_bg" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnEVoter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/e_voter"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="15dp"
+                android:id="@+id/btnEKYC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/e_kyc"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:background="@drawable/button_bg" />
+
         </LinearLayout>
 
     </ScrollView>

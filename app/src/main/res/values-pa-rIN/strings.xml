@@ -19,5 +19,7 @@
     <string name="reprint">ਵੋਟਰ ਦੁਬਾਰਾ ਛਾਪੋ</string>
     <string name="forms">ਫਾਰਮ</string>
     <string name="result">ਚੋਣ ਨਤੀਜਾ</string>
+    <string name="e_voter">Download E-Voter</string>
+    <string name="e_kyc">E-KYC</string>
 
 </resources>
