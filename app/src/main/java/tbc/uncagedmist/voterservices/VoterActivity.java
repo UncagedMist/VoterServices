@@ -1,5 +1,6 @@
 package tbc.uncagedmist.voterservices;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -9,24 +10,26 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import java.util.Locale;
 
-import am.appwise.components.ni.NoInternetDialog;
 import tbc.uncagedmist.voterservices.Common.Common;
 
 public class VoterActivity extends AppCompatActivity {
 
     private InterstitialAd mInterstitialAd;
     AdView aboveBanner, bottomBanner;
-    NoInternetDialog noInternetDialog;
 
     AppCompatButton btnSearch, btnVoterPortal, btnDownloadRoll, btnKnowBooth,btnTrackApp, btnOfficial, btnApply;
     AppCompatButton btnOverseas, btnDelete, btnEdit, btnTrans, btnMigration, btnReprint,btnResult,btnForms;
@@ -38,22 +41,43 @@ public class VoterActivity extends AppCompatActivity {
         loadLocale();
         setContentView(R.layout.activity_voter);
 
-        noInternetDialog = new NoInternetDialog.Builder(VoterActivity.this).build();
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-7920815986886474/1259546558");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        AdRequest adRequest = new AdRequest.Builder().build();
 
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                // Load the next interstitial.
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            }
-        });
+        InterstitialAd.load(
+                VoterActivity.this,
+                "ca-app-pub-7920815986886474/1259546558",
+                adRequest, new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        mInterstitialAd = interstitialAd;
+
+                        mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+                            @Override
+                            public void onAdDismissedFullScreenContent() {
+                                Log.d("TAG", "The ad was dismissed.");
+                            }
+
+                            @Override
+                            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                Log.d("TAG", "The ad failed to show.");
+                            }
+
+                            @Override
+                            public void onAdShowedFullScreenContent() {
+                                mInterstitialAd = null;
+                                Log.d("TAG", "The ad was shown.");
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        mInterstitialAd = null;
+                    }
+                });
 
         btnSearch = findViewById(R.id.btnSearch);
         btnVoterPortal = findViewById(R.id.btnVoterPortal);
@@ -78,8 +102,6 @@ public class VoterActivity extends AppCompatActivity {
 
         aboveBanner = findViewById(R.id.aboveBanner);
         bottomBanner = findViewById(R.id.belowBanner);
-
-        AdRequest adRequest = new AdRequest.Builder().build();
 
         aboveBanner.loadAd(adRequest);
         bottomBanner.loadAd(adRequest);
@@ -113,11 +135,6 @@ public class VoterActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-
-            @Override
             public void onAdClosed() {
                 // Code to be executed when the user is about to return
                 // to the app after tapping on an ad.
@@ -147,46 +164,9 @@ public class VoterActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-
-            @Override
             public void onAdClosed() {
                 // Code to be executed when the user is about to return
                 // to the app after tapping on an ad.
-            }
-        });
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-            }
-
-            @Override
-            public void onAdFailedToLoad(LoadAdError adError) {
-                // Code to be executed when an ad request fails.
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when the ad is displayed.
-            }
-
-            @Override
-            public void onAdClicked() {
-                // Code to be executed when the user clicks on an ad.
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-
-            @Override
-            public void onAdClosed() {
-                // Code to be executed when the interstitial ad is closed.
             }
         });
     }
@@ -195,9 +175,10 @@ public class VoterActivity extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.SEARCH_VOTER);
                     startActivity(intent);
@@ -209,9 +190,10 @@ public class VoterActivity extends AppCompatActivity {
         btnVoterPortal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.VOTER_PORTAL);
                     startActivity(intent);
@@ -223,9 +205,10 @@ public class VoterActivity extends AppCompatActivity {
         btnDownloadRoll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.DOWNLOAD_ROLL);
                     startActivity(intent);
@@ -237,9 +220,10 @@ public class VoterActivity extends AppCompatActivity {
         btnKnowBooth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.KNOW_BOOTH);
                     startActivity(intent);
@@ -251,9 +235,10 @@ public class VoterActivity extends AppCompatActivity {
         btnForms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.FORMS);
                     startActivity(intent);
@@ -265,9 +250,10 @@ public class VoterActivity extends AppCompatActivity {
         btnResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.RESULT);
                     startActivity(intent);
@@ -279,9 +265,10 @@ public class VoterActivity extends AppCompatActivity {
         btnTrackApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.TRACK_APP);
                     startActivity(intent);
@@ -293,9 +280,10 @@ public class VoterActivity extends AppCompatActivity {
         btnOfficial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.OFFICIAL_PAGE);
                     startActivity(intent);
@@ -307,9 +295,10 @@ public class VoterActivity extends AppCompatActivity {
         btnApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.NEW_REGISTER);
                     startActivity(intent);
@@ -321,9 +310,10 @@ public class VoterActivity extends AppCompatActivity {
         btnOverseas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.OVERSEAS_REGISTER);
                     startActivity(intent);
@@ -335,9 +325,10 @@ public class VoterActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.DELETE_ELECTOR);
                     startActivity(intent);
@@ -349,9 +340,10 @@ public class VoterActivity extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.EDIT_ELECTOR);
                     startActivity(intent);
@@ -363,9 +355,10 @@ public class VoterActivity extends AppCompatActivity {
         btnTrans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.TRANSPOSITION);
                     startActivity(intent);
@@ -377,9 +370,10 @@ public class VoterActivity extends AppCompatActivity {
         btnMigration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.MIGRATION);
                     startActivity(intent);
@@ -391,9 +385,10 @@ public class VoterActivity extends AppCompatActivity {
         btnReprint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.REPRINT);
                     startActivity(intent);
@@ -405,9 +400,10 @@ public class VoterActivity extends AppCompatActivity {
         btnEVoter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.E_VOTER);
                     startActivity(intent);
@@ -419,9 +415,10 @@ public class VoterActivity extends AppCompatActivity {
         btnEKYC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(VoterActivity.this);
+                }
+                else {
                     Intent intent = new Intent(VoterActivity.this,ResultActivity.class);
                     intent.putExtra("url", Common.E_KYC);
                     startActivity(intent);
@@ -448,11 +445,5 @@ public class VoterActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = getSharedPreferences("Settings",MODE_PRIVATE).edit();
         editor.putString("My_Lang",lang);
         editor.apply();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        noInternetDialog.onDestroy();
     }
 }

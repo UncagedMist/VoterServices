@@ -40,15 +40,12 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 import com.shashank.sony.fancydialoglib.FancyAlertDialogListener;
 import com.shashank.sony.fancydialoglib.Icon;
 
-import am.appwise.components.ni.NoInternetDialog;
 import tbc.uncagedmist.voterservices.Utility.CustomLoadDialog;
 import tbc.uncagedmist.voterservices.Utility.CustomProgressDialog;
 
 public class ResultActivity extends AppCompatActivity {
 
     AdView aboveBanner, bottomBanner;
-
-    NoInternetDialog noInternetDialog;
 
     String url;
 
@@ -63,8 +60,6 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-
-        noInternetDialog = new NoInternetDialog.Builder(ResultActivity.this).build();
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
@@ -199,11 +194,6 @@ public class ResultActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-
-            @Override
             public void onAdClosed() {
                 // Code to be executed when the user is about to return
                 // to the app after tapping on an ad.
@@ -230,11 +220,6 @@ public class ResultActivity extends AppCompatActivity {
             @Override
             public void onAdClicked() {
                 // Code to be executed when the user clicks on an ad.
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
             }
 
             @Override
@@ -331,11 +316,5 @@ public class ResultActivity extends AppCompatActivity {
         if (webView.canGoBack()) {
             webView.goBack();
         }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        noInternetDialog.onDestroy();
     }
 }

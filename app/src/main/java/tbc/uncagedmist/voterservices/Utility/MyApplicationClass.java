@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.adcolony.sdk.AdColony;
+import com.adcolony.sdk.AdColonyAppOptions;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.AdapterStatus;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -25,6 +27,9 @@ public class MyApplicationClass extends Application {
     public static Activity mActivity;
     MyNetworkReceiver mNetworkReceiver;
 
+    public static final String APP_ID = "app0622127d659e4910b5";
+    public static final String ZONE_ID = "vzb07e093723b0481c91";
+
     public static Context getContext() {
         return context;
     }
@@ -34,7 +39,10 @@ public class MyApplicationClass extends Application {
         super.onCreate();
 
         context = getApplicationContext();
-        MobileAds.initialize(this, "ca-app-pub-7920815986886474~3483031434");
+
+        AdColonyAppOptions appOptions = new AdColonyAppOptions();
+
+        AdColony.configure(this, appOptions, APP_ID, ZONE_ID);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
